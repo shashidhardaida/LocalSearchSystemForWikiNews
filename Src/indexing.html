@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Indexing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/Home.css">
+    <link rel="stylesheet" href="CSS/indexing.css">
+    <link rel="stylesheet" href="CSS/common.css">
+</head>
+   
+<body>  
+    
+    <header class=header>
+        <a class="title" href="#"><img src="./images/logo.png" alt="logo" style="width:60px;"> Local Search System</a> 
+    </header>
+    <hr>
+    
+ <div class="icon-bar">
+      <a href="user-management.html"><i class="fa fa-users navtext" title="User management"></i> User Management</a> 
+      <a href="Item-Management.html"><i class="fa fa-list navtext" title="Item management"></i> Item Management</a>
+      <a href="web-sracpping.html"><i class="fa fa-globe navtext" title="Web scrapping" ></i> Web Scraping</a>
+      <a href="Login.html"><i class="fa fa-sign-out navtext" title="Sign out"></i> Sign Out</a> 
+    </div>
+    <div class="index_content">
+        <h3 class="indexing"><b>Select Feature</b></h3>
+        <form class="indexform"action="/action_page.php">
+          <input type="checkbox" id="itemname" name="itemnamecheckbox">
+          <label for="vehicle1"> Item Name</label><br>
+          <input type="checkbox" id="itemdescription" name="itemdescriptioncheckbox">
+          <label for="vehicle2"> Item Description</label><br>
+          <input type="checkbox" id="itemurl" name="itemurlcheckbox">
+          <label for="vehicle3"> Item URL</label><br><br>
+          <input class="indexbutton" type="submit" value="Submit">
+        </form>
+    </div>
+    
+</body>
+</html>
