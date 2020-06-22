@@ -9,7 +9,7 @@ function validateWebScrappingForm() {
             alert('Please Enter the Website URL to scrap the data');
     }
     
-    retun false
+//    retun false
     
 }
 

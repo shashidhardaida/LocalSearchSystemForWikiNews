@@ -11,6 +11,6 @@ function validateIndexingForm() {
         alert('Please select any feature');
     }
    
-    retun false
+  
 }
 
