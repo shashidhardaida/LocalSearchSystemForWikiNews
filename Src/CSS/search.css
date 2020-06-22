@@ -50,3 +50,13 @@ body {
 .overlay button:hover {
   background: #bbb;
 }
+.signout{
+    float:right;
+    padding: 15px 50px 0px 0px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+.signout:hover{
+    text-decoration: none;
+}

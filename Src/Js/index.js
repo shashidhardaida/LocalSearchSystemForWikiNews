@@ -3,8 +3,10 @@
 function validateForm() {
     var user_name = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var dummy_user_name = 'admin'
-    var dummy_password = 'p@ssword!23'
+    var admin_user = 'admin'
+    var admin_password = 'admin@123'
+    var anonymous_user = "anonymous"
+    var anonymous_password = "anonymous@123"
     if (user_name === "" & password ==="") {
         alert("Please enter credentials");
     }
@@ -14,14 +16,19 @@ function validateForm() {
     else if (user_name === "") {
         alert("User Name must be filled out");
     }
-    else if(user_name == "admin" && password == "admin")
-    { 
-        window.location="http://www.w3schools.com";
+    else if(user_name==admin_user && password == admin_password)
+    {
+         window.location.href = "user-management.html";    
+    }
+    else if(user_name == anonymous_user && password == anonymous_password){
+        
+        window.location.href = "search.html";   
+         
     }
     else{
-        window.location = 'Src/search.html';  
+        alert("Invalid User name or Password")
     }
-    return false;
+    
+    return false
 }
-    
-    
+

@@ -20,21 +20,26 @@
  <div class="icon-bar">
       <a href="user-management.html"><i class="fa fa-users navtext" title="User management"></i> User Management</a> 
       <a href="Item-Management.html"><i class="fa fa-list navtext" title="Item management"></i> Item Management</a>
-      <a href="web-sracpping.html"><i class="fa fa-globe navtext" title="Web scrapping" ></i> Web Scraping</a>
-      <a href="Login.html"><i class="fa fa-sign-out navtext" title="Sign out"></i> Sign Out</a> 
+      <a href="web-scrapping.html"><i class="fa fa-globe navtext" title="Web scrapping" ></i> Web Scraping</a>
+      <a href="index.html"><i class="fa fa-sign-out navtext" title="Sign out"></i> Sign Out</a> 
     </div>
     <div class="index_content">
         <h3 class="indexing"><b>Select Feature</b></h3>
-        <form class="indexform"action="/action_page.php">
-          <input type="checkbox" id="itemname" name="itemnamecheckbox">
-          <label for="vehicle1"> Item Name</label><br>
-          <input type="checkbox" id="itemdescription" name="itemdescriptioncheckbox">
-          <label for="vehicle2"> Item Description</label><br>
-          <input type="checkbox" id="itemurl" name="itemurlcheckbox">
-          <label for="vehicle3"> Item URL</label><br><br>
+        <form class="indexform" onsubmit="return validateIndexingForm();">
+          <input type="checkbox" id="itemname" name="itemname">
+          <label for="itemname"> Item Name</label><br>
+          <input type="checkbox" id="itemdescription" name="itemdescription">
+          <label for="itemdescription"> Item Description</label><br>
+          <input type="checkbox" id="itemurl" name="itemurl"> 
+          <label for="itemurl"> Item Website</label><br><br>
+<!--          <button class="indexbutton" type="submit" onclick="validateIndexingForm();">Submit</button>-->
           <input class="indexbutton" type="submit" value="Submit">
         </form>
     </div>
     
+    
+<script src="Js/indexings.js"></script>
+
 </body>
+    
 </html>

@@ -23,19 +23,22 @@
     <div class="icon-bar">
       <a href="user-management.html" ><i class="fa fa-users navtext" title="User management"></i>User Management</a> 
       <a href="Item-Management.html"><i class="fa fa-list navtext" title="Item management"></i>Item Management</a>
-      <a href="web-sracpping-page.html" class="active"><i class="fa fa-globe navtext" title="Web scrapping" ></i>Web scrapping</a>
+      <a href="web-scrapping.html" class="active"><i class="fa fa-globe navtext" title="Web scrapping" ></i>Web scrapping</a>
       <a href="index.html"><i class="fa fa-sign-out navtext" title="Sign out"></i>Sign out</a> 
     </div>
  
     
-    <div class="col-md-10 scrapform">
+    <div class="col-md-9 scrapform">
         <h2 class="heading">Web <b>scrapping</b></h2>
-        <form>
+        <form onsubmit="return validateWebScrappingForm();">
             <p class="weblink">Enter Website URL: </p>
             <input class="input" type="text" id="webscrap">
-            <button type="submit" class="scrap">Scrap</button>
+            <input class="scrap" type="submit" value="scrap">
+<!--            <button  type="submit" class="scrap" onclick="validateWebScrappingForm();">Scrap</button>-->
         </form>
-    </div>
-              
+    </div> 
+    
+    <script src="Js/web-scrapping.js"></script>
+    
 </body>
 </html>
