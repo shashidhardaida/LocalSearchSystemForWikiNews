@@ -1,0 +1,50 @@
+1. Reference for Django installation and Project creation
+    
+    https://medium.com/@vsvaibhav2016/django-python-web-framework-project-setup-in-on-windows-part-1-957134455a58
+
+   Steps for installing Django and create a project and apps in the project.
+
+   1. First check the python version in the system. It should be more than 3.7
+     
+       > python --version
+ 
+   2. Check pip version
+   
+      > pip --version
+
+   3. Create a directory where you want to create your project. For example
+
+       > mkdir djangoproject
+
+   4. Create virtual environment in that project folder so that it will not affect all other projects in the system. It is always better to install django for a project seperately using virtual environment
+   
+      > python -m virtualenv venv (here venv is the name of virtual environment. This can be choice of 
+  
+   5. Before creating the project we need to actiavet the virtual environment. This task needs to be performed every time when we work on the project.
+
+      > venv\scripts\activate
+   
+   6. Now we have to install django in this virtual environment by following command.
+  
+       > pip install django
+
+   7. Now we create the django project using below command.
+
+      > django-admin startproject someproject
+
+   8. Now we can run the webserver for our project by following command
+
+      > python manage.py runserver
+
+       Watching for file changes with StatReloader
+       Performing system checks...
+
+      System check identified no issues (0 silenced).
+      July 01, 2020 - 00:16:41
+      Django version 3.0.7, using settings 'LocalSearchSystem.settings'
+      Starting development server at http://127.0.0.1:8000/
+      Quit the server with CTRL-BREAK.
+
+     Now we can check the project by accessing above url http://127.0.0.1:8000/
+ 
+     
