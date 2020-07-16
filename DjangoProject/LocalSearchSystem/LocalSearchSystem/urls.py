@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import User.views as userview
+import WikiNews.views as wikinewsview
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', userview.LoginView)
+    path('user/', include('User.urls')),
+    path('wikinews/', include('WikiNews.urls'))
 
 ]
 

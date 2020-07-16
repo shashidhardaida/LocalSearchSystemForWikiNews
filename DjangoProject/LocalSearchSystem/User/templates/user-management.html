@@ -16,18 +16,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="/static/css/common.css">
 </head>
 	
 <body>
 	
     <header>
-        <a class="title" href="#"><img src="./images/logo.png" alt="logo" style="width:60px;"> Local Search System</a>    
+        <a class="title" href="#"><img src="/static/images/logo.png" alt="logo" style="width:60px;"> Local Search System</a>
     </header>
     
     <div class="sidebar">
-      <a href="user-management.html" class="active"><i class="fa fa-users navtext" title="User management"></i> User Management</a> 
-      <a href="Item-Management.html"><i class="fa fa-list navtext" title="Item management"></i> Item Management</a>
+      <a href="{% url 'User:usermanagement' %}" class="active"><i class="fa fa-users navtext" title="User management"></i> User Management</a>
+      <a href="{% url 'WikiNews:itemmanagement' %}"><i class="fa fa-list navtext" title="Item management"></i> Item Management</a>
       <a href="web-scrapping.html"><i class="fa fa-globe navtext" title="Web scrapping" ></i> Web Scraping</a>
       <a href="index.html"><i class="fa fa-sign-out navtext" title="Sign out"></i> Sign Out</a> 
     </div>
@@ -46,178 +46,39 @@
                 <table id="user_table" class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>User Id</th>
+                            <th>UserName</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>Password</th>
                             <th>Account Status</th>
+                            <th>User Type</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                    {% for x in data %}
                         <tr>
-                            <td>User1</td>
-                            <td>walter</td>
-                            <td>white</td>
-                            <td>walterwhite@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
+                            <td>{{x.username}}</td>
+                            <td>{{x.firstname}}</td>
+                            <td>{{x.lastname}}</td>
+                            <td>{{x.email}}</td>
+                            <td>{{x.password}}</td>
+                            <td><span class="greendot"></span>{{x.status}}</td>
+                            <td>{{x.usertype}}</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>User2</td>
-                            <td>Peter</td>
-                            <td>Parker</td>
-                            <td>peterparkar@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>User3</td>
-                            <td>Fran</td>
-                            <td>Wilson</td>
-                            <td>franwilson@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="reddot"></span>Inactive</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>User3</td>
-                            <td>Fran</td>
-                            <td>Wilson</td>
-                            <td>franwilson@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>User4</td>
-                            <td>David</td>
-                            <td>Warner</td>
-                            <td>DavidWarner@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>   
-                        <tr>
-                            <td>User5</td>
-                            <td>Rishab</td>
-                            <td>Pamth</td>
-                            <td>rishabpanth@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>  
-                        <tr>
-                            <td>User6</td>
-                            <td>MS</td>
-                            <td>Dhoni</td>
-                            <td>msdhoni@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>  
-                         <tr>
-                            <td>User7</td>
-                            <td>Saul</td>
-                            <td>Goodman</td>
-                            <td>saulgoodman@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="reddot"></span>Inactive</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr> 
-                          <tr>
-                            <td>User8</td>
-                            <td>Kim</td>
-                            <td>Wexler</td>
-                            <td>kimwexler@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>  
-                        <tr>
-                            <td>User9</td>
-                            <td>John</td>
-                            <td>Miller</td>
-                            <td>johnmiller@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr> 
-                           <tr>
-                            <td>User10</td>
-                            <td>Tim</td>
-                            <td>Cook</td>
-                            <td>timcook@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>User11</td>
-                            <td>Turner</td>
-                            <td>Brennon</td>
-                            <td>turnerbrennon@gmail.com</td>
-                            <td>*********</td>
-                            <td><span class="greendot"></span>Active</td>
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>       
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>     
 
-    <script src="Js/user-management.js"></script>
+    <script src="/static/js/user-management.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
@@ -15,7 +15,8 @@
         <a class="title" href="#"><img src="/static/images/logo.png" alt="logo" style="width:60px;"> Local Search System</a>
     </header>
     
-    <form class="form" onsubmit="return validateForm();" >
+    <form class="form" action="/user/usermanagement" method="POST">
+        {% csrf_token %}
         <img class="login_icon" src="/static/images/loginnew.png" alt="logo">
         <p>User Name: </p>
         <input class="input" type="text" id="username" name="username">
