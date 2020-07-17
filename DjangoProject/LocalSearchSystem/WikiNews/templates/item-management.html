@@ -25,10 +25,10 @@
     </header>
     
     <div class="sidebar">
-      <a href="user-management.html"><i class="fa fa-users navtext" title="User management"></i> User Management</a> 
-      <a href="Item-Management.html"  class="active"><i class="fa fa-list navtext" title="Item management"></i> Item Management</a>
-      <a href="web-scrapping.html"><i class="fa fa-globe navtext" title="Web scrapping" ></i> Web Scraping</a>
-      <a href="index.html"><i class="fa fa-sign-out navtext" title="Sign out"></i> Sign Out</a> 
+      <a href="{% url 'User:usermanagement' %}"><i class="fa fa-users navtext" title="User management"></i> User Management</a>
+      <a href="{% url 'WikiNews:itemmanagement' %}"  class="active"><i class="fa fa-list navtext" title="Item management"></i> Item Management</a>
+      <a href="{% url 'WikiNews:webscrapping' %}"><i class="fa fa-globe navtext" title="Web scrapping" ></i> Web Scraping</a>
+      <a href="{% url 'User:logout' %}"><i class="fa fa-sign-out navtext" title="Sign out"></i> Sign Out</a>
     </div>
     
     <div class="container-lg tabledata">
@@ -45,21 +45,19 @@
                 <table id="item_table" class="table table-responsive table-bordered">
                     <thead>
                         <tr>
-                            <th>Item Id</th>
+                            <th>Item No.</th>
                             <th>Item Name</th>
                             <th>Item Description</th>
-                            <th>Item website</th>
-                            <th>Indexing</th>
+                            <th>Last Updated</th>
 							<th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><a href="details.html">DJ AM</a></td>
-                            <td>Biography of DJ AM</td>
-                            <td>www.djamdoc.com</td>
-							<td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">Seoul city Mayor Park Won-soon found dead, South Korean police confirm</a></td>
+                            <td>Park Won-soon, the mayor of Seoul, South Korea, was found dead, police reported Friday morning, local time. He was reported missing Thursday evening by the police.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -68,10 +66,9 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><a href="details.html">Aaliyah</a></td>
-                            <td>Biography of Aaliyah</td>
-                            <td>www.aaliyah.com</td>
-							<td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">Serbian protesters try to storm Parliament; fourth day of protests</a></td>
+                            <td>Friday night was the fourth night in a row that Serbians protested; the protest started out against the government's anti-COVID-19 measures but has reportedly expanded into more general anti-government protests. Police director Vladimir Rebic said at least 71 people were arrested Friday night.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -80,10 +77,9 @@
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td><a href="details.html">Jomo Kenyatta</a></td>
-                            <td>Biography of Jomo Kenyatta</td>
-                            <td> </td>
-							<td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">Astronomer Anthony Boccaletti discusses observation of birth of potential exoplanet with Wikinews</a></td>
+                            <td>In March, a study conducted by astronomer Anthony Boccaletti and other researchers reported potential signs of formation of an exoplanet around the star AB Aurigae.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -92,10 +88,9 @@
                         </tr> 
                         <tr>
                            <td>4</td>
-                            <td><a href="details.html">Hasan al-Kharrat</a></td>
-                            <td>Biography of Hasan al-Kharrat</td>
-                            <td> </td>
-						    <td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">Neanderthals 'knew what they were doing': Archæologist Dr Naomi Martisius discusses her findings about Neanderthals' behaviour with Wikinews</a></td>
+                            <td>In May, a study conducted by archæologist Dr. Naomi Martisius and other researchers concluded Neanderthals living in Europe tens of thousands of years ago were more sophisticated than previously thought.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -104,10 +99,9 @@
                         </tr>   
                          <tr>
                            <td>5</td>
-                            <td><a href="details.html">Abu Nidal</a></td>
-                            <td>Biography of Abu Nidal</td>
-                            <td></td>
-						    <td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">Open source game developer Perttu Ahola talks about Minetest with Wikinews</a></td>
+                            <td>Recently, Finnish open-source video game developer Perttu Ahola discussed Minetest, his "longest ever project", with Wikinews. Started in October 2010, Minetest was an attempt by Ahola to create a sandbox game similar to Minecraft.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -116,10 +110,9 @@
                         </tr>
                           <tr>
                            <td>6</td>
-                            <td><a href="details.html">Chinua Acebe</a></td>
-                            <td>Biography of Chinua Acebe</td>
-                            <td></td>
-						    <td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">Neanderthals 'knew what they were doing': Archæologist Dr Naomi Martisius discusses her findings about Neanderthals' behaviour with Wikinews</a></td>
+                            <td>Last month, a study conducted by archæologist Dr. Naomi Martisius and other researchers concluded Neanderthals living in Europe tens of thousands of years ago were more sophisticated than previously thought.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -128,10 +121,9 @@
                         </tr>
                         <tr>
                            <td>7</td>
-                            <td><a href="details.html">John Adair</a></td>
-                            <td>Biography of JOhn Adair</td>
-                            <td></td>
-						    <td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">Three killed, three others injured in stabbing attack in Reading, UK</a></td>
+                            <td>On Saturday evening in Forbury Gardens in Reading, Berkshire, UK shortly before 19:00 local time (1800 UTC), a mass stabbing killed three people and injured three others.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -140,10 +132,9 @@
                         </tr>
                         <tr>
                            <td>8</td>
-                            <td><a href="details.html">Doc Adams</a></td>
-                            <td>Biography of Doc Adams</td>
-                            <td></td>
-						    <td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">British supermarket chain Tesco to sell its Polish branch to Salling Group A/S</a></td>
+                            <td>On Thursday, UK-based retailer Tesco and Denmark-based retailer Salling Group announced their agreement over selling a large portion of Tesco's Polish operation to Salling Group.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -152,10 +143,9 @@
                         </tr>
                          <tr>
                            <td>9</td>
-                            <td><a href="details.html">John Adams</a></td>
-                            <td>Biography of John Adams</td>
-                            <td></td>
-						    <td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">On the campaign trail in the USA, May 2020</a></td>
+                            <td>The following is the first edition of a monthly series chronicling the 2020 United States presidential election. It features original material compiled throughout the previous month after an overview of the month's biggest stories.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -164,10 +154,9 @@
                         </tr>
                          <tr>
                            <td>10</td>
-                            <td><a href="details.html">Samuel Adams</a></td>
-                            <td>Biography of Samuel Adams</td>
-                            <td></td>
-						    <td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">South Sudanese politician John Luk Jok dies aged about 68</a></td>
+                            <td>John Luk Jok, the South Sudanese minister for East African Affairs and a figure in independence from Sudan, died yesterday in Juba, the capital city of South Sudan.</td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -176,10 +165,9 @@
                         </tr>
                          <tr>
                            <td>11</td>
-                            <td><a href="details.html">Nick Adanhart</a></td>
-                            <td>Biography of Nick Adanhart</td>
-                            <td></td>
-						    <td>Indexing</td>
+                            <td><a href="{% url 'WikiNews:itemdetails' %}">Face coverings to be mandatory on public transport in England from June 15, transport secretary declares</a></td>
+                            <td>Yesterday, England's transport secretary, Grant Shapps, announced that from June 15, wearing a face covering would become compulsory while riding public transport in England. </td>
+                            <td>Sunday 12 Jul 2020</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -192,6 +180,6 @@
         </div>
     </div>     
 
-    <script src="Js/item-management.js"></script>
+    <script src="/static/js/item-management.js"></script>
 </body>
 </html>

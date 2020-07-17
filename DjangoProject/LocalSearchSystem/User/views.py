@@ -20,6 +20,6 @@ def UserManagementView(request):
     return render(request, 'user-management.html',{'data':data})
 
 
-def ItemManagementView(request):
-    return render(request, '/Wikinews/item-management.html')
+def LogoutView(request):
+    return render(request, 'index.html')
 

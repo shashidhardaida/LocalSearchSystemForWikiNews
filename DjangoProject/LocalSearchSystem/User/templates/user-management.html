@@ -28,8 +28,8 @@
     <div class="sidebar">
       <a href="{% url 'User:usermanagement' %}" class="active"><i class="fa fa-users navtext" title="User management"></i> User Management</a>
       <a href="{% url 'WikiNews:itemmanagement' %}"><i class="fa fa-list navtext" title="Item management"></i> Item Management</a>
-      <a href="web-scrapping.html"><i class="fa fa-globe navtext" title="Web scrapping" ></i> Web Scraping</a>
-      <a href="index.html"><i class="fa fa-sign-out navtext" title="Sign out"></i> Sign Out</a> 
+      <a href="{% url 'WikiNews:webscrapping' %}"><i class="fa fa-globe navtext" title="Web scrapping" ></i> Web Scraping</a>
+      <a href="{% url 'User:logout' %}"><i class="fa fa-sign-out navtext" title="Sign out"></i> Sign Out</a>
     </div>
     
     <div class="container-lg tabledata">

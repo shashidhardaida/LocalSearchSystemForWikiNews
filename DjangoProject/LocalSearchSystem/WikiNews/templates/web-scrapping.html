@@ -7,21 +7,21 @@
     <title>Web Scrapping</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="CSS/common.css">
-    <link rel="stylesheet" href="CSS/webscrapping.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/webscrapping.css">
 </head>
 	
 <body>
 	
     <header>
-        <a class="title" href="#"><img src="./images/logo.png" alt="logo" style="width:60px;"> Local Search System</a> 
+        <a class="title" href="#"><img src="/static/images/logo.png" alt="logo" style="width:60px;"> Local Search System</a>
     </header>
     
     <div class="sidebar">
-      <a href="user-management.html" ><i class="fa fa-users" title="User management"></i> User Management</a> 
-      <a href="Item-Management.html"><i class="fa fa-list" title="Item management"></i> Item Management</a>
-      <a href="web-scrapping.html" class="active"><i class="fa fa-globe" title="Web scrapping" ></i> Web scrapping</a>
-      <a href="index.html"><i class="fa fa-sign-out" title="Sign out"></i> Sign out</a> 
+      <a href="{% url 'User:usermanagement' %}" ><i class="fa fa-users" title="User management"></i> User Management</a>
+      <a href="{% url 'WikiNews:itemmanagement' %}"><i class="fa fa-list" title="Item management"></i> Item Management</a>
+      <a href="{% url 'WikiNews:webscrapping' %}" class="active"><i class="fa fa-globe" title="Web scrapping" ></i> Web scrapping</a>
+      <a href="{% url 'User:logout' %}"><i class="fa fa-sign-out" title="Sign out"></i> Sign out</a>
     </div>
  
     
@@ -35,7 +35,7 @@
         </form>
     </div> 
     
-    <script src="Js/web-scrapping.js"></script>
+    <script src="/static/js/web-scrapping.js"></script>
     
 </body>
 </html>

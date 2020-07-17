@@ -4,3 +4,9 @@ from django.shortcuts import render
 
 def ItemManagementView(request):
     return render(request, 'item-management.html')
+
+def WebScrappingView(request):
+    return render(request, 'web-scrapping.html')
+
+def ItemDetailView(request):
+    return render(request, 'details.html')
