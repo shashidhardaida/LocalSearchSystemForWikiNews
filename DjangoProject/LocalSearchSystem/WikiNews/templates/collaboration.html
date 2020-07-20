@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=windows-1252">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Details</title>
@@ -19,19 +20,19 @@
         <ul class="vector-menu-content-list" style="list-style: none none; margin: 0px; padding: 0px; float: left; height: 40px;">
           <li id="ca-nstab-main" style="margin: 0px; padding: 0px; line-height: 1.125em; background-image: linear-gradient(to top, rgb(119, 193, 246) 0px, rgb(232, 242, 248) 1px, rgb(255, 255, 255) 100%); background-position: left bottom; background-repeat: repeat-x; float: left; display: block; height: 40px; white-space: nowrap;"><b><a
 
-                href="details.html"
+                href="{% url 'WikiNews:itemdetails' %}"
 
                 title="View the content page [alt-shift-c]" accesskey="c" style="text-decoration: none; color: rgb(6, 69, 173); background: linear-gradient(rgba(167, 215, 249, 0) 0px, rgb(167, 215, 249) 100%) right bottom / 1px 100% no-repeat; box-sizing: border-box; display: block; float: left; height: 3.07692em; position: relative; padding-top: 1.25em; padding-left: 8px; padding-right: 8px; font-size: 0.8125em; cursor: pointer;">Article</a></b></li>
           <li id="ca-talk" class="selected" style="margin: 0px; padding: 0px; line-height: 1.125em; background: rgb(255, 255, 255); float: left; display: block; height: 40px; white-space: nowrap;"><b><a
 
-                href="collaboration.html"
+                href="{% url 'WikiNews:collaboration' %}"
 
                 rel="discussion" title="Discussion about the content page [alt-shift-t]"
 
                 accesskey="t" style="text-decoration: none; color: rgb(32, 33, 34); background: linear-gradient(rgba(167, 215, 249, 0) 0px, rgb(167, 215, 249) 100%) right bottom / 1px 100% no-repeat; box-sizing: border-box; display: block; float: left; height: 3.07692em; position: relative; padding-top: 1.25em; padding-left: 8px; padding-right: 8px; font-size: 0.8125em; cursor: pointer;">Collaboration</a></b></li>
           <li id="ca-comments" style="margin: 0px; padding: 0px; line-height: 1.125em; background-image: linear-gradient(to top, rgb(119, 193, 246) 0px, rgb(232, 242, 248) 1px, rgb(255, 255, 255) 100%); background-position: left bottom; background-repeat: repeat-x; float: left; display: block; height: 40px; white-space: nowrap;"><b><a
 
-                href="opinions.html"
+                href="{% url 'WikiNews:opinions' %}"
 
                 title="Discuss your personal viewpoint on the topic at hand" style="text-decoration: underline; color: rgb(6, 69, 173); background: linear-gradient(rgba(167, 215, 249, 0) 0px, rgb(167, 215, 249) 100%) right bottom / 1px 100% no-repeat; box-sizing: border-box; display: block; float: left; height: 3.07692em; position: relative; padding-top: 1.25em; padding-left: 8px; padding-right: 8px; font-size: 0.8125em; cursor: pointer;">Opinions</a></b></li>
         </ul>
@@ -71,7 +72,7 @@
 
               style="text-decoration: none; color: rgb(11, 0, 128); background: none;"><span
 
-                style="color: rgb(0, 0, 0); box-shadow: rgb(85, 221, 238) 0px 0px 7px; padding-left: 2.5px; padding-right: 2.5px; border-radius: 10px;">•–•</span></a><span>&nbsp;</span>19:24,
+                style="color: rgb(0, 0, 0); box-shadow: rgb(85, 221, 238) 0px 0px 7px; padding-left: 2.5px; padding-right: 2.5px; border-radius: 10px;">â€¢â€“â€¢</span></a><span>&nbsp;</span>19:24,
             9 July 2020 (UTC)</p>
           <dl style="margin-top: 0.2em; margin-bottom: 0.5em;">
             <dd style="margin-left: 1.6em; margin-bottom: 0.1em; margin-right: 0px;">I
@@ -93,7 +94,7 @@
 
                       class="image" style="text-decoration: none; color: rgb(11, 0, 128); background: none;"><img
 
-                        alt="Artículo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/40px-Art%C3%ADculo_bueno.svg.png"
+                        alt="ArtÃ­culo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/40px-Art%C3%ADculo_bueno.svg.png"
 
                         data-file-width="180" data-file-height="185" style="border: 0px; vertical-align: middle;"
 
@@ -117,7 +118,7 @@
                         style="text-decoration: none; color: rgb(11, 0, 128); background: none;">Pi
                         zero</a><span>&nbsp;</span>(<a href="https://en.wikinews.org/wiki/User_talk:Pi_zero"
 
-                        title="User talk:Pi zero" style="text-decoration: none; color: rgb(11, 0, 128); background: none;">talk</a><span>&nbsp;</span>·<span>&nbsp;</span><a
+                        title="User talk:Pi zero" style="text-decoration: none; color: rgb(11, 0, 128); background: none;">talk</a><span>&nbsp;</span>Â·<span>&nbsp;</span><a
 
                         href="https://en.wikinews.org/wiki/Special:Contributions/Pi_zero"
 
@@ -133,7 +134,7 @@
 
                           class="image" style="text-decoration: none; color: rgb(11, 0, 128); background: none;"><img
 
-                            alt="Artículo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
+                            alt="ArtÃ­culo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
 
                             data-file-width="180" data-file-height="185" style="border: 0px; vertical-align: middle;"
 
@@ -146,7 +147,7 @@
 
                           class="image" style="text-decoration: none; color: rgb(11, 0, 128); background: none;"><img
 
-                            alt="Artículo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
+                            alt="ArtÃ­culo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
 
                             data-file-width="180" data-file-height="185" style="border: 0px; vertical-align: middle;"
 
@@ -159,7 +160,7 @@
 
                           class="image" style="text-decoration: none; color: rgb(11, 0, 128); background: none;"><img
 
-                            alt="Artículo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
+                            alt="ArtÃ­culo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
 
                             data-file-width="180" data-file-height="185" style="border: 0px; vertical-align: middle;"
 
@@ -172,7 +173,7 @@
 
                           class="image" style="text-decoration: none; color: rgb(11, 0, 128); background: none;"><img
 
-                            alt="Artículo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
+                            alt="ArtÃ­culo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
 
                             data-file-width="180" data-file-height="185" style="border: 0px; vertical-align: middle;"
 
@@ -185,7 +186,7 @@
 
                           class="image" style="text-decoration: none; color: rgb(11, 0, 128); background: none;"><img
 
-                            alt="Artículo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
+                            alt="ArtÃ­culo bueno.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Art%C3%ADculo_bueno.svg/10px-Art%C3%ADculo_bueno.svg.png"
 
                             data-file-width="180" data-file-height="185" style="border: 0px; vertical-align: middle;"
 

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/css/home.css">
   </head>
   <body>
-    <header> <a class="title" href="#"><img src="./images/logo.png" alt="logo"
+    <header> <a class="title" href="#"><img src="/static/images/logo.png" alt="logo"
 
           style="width:60px;"> Local Search System</a></header>
     <nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" role="navigation"
@@ -19,17 +19,17 @@
         <ul class="vector-menu-content-list" style="list-style: none none; margin: 0px; padding: 0px; float: left; height: 40px;">
           <li id="ca-nstab-main" style="margin: 0px; padding: 0px; line-height: 1.125em; background-image: linear-gradient(to top, rgb(119, 193, 246) 0px, rgb(232, 242, 248) 1px, rgb(255, 255, 255) 100%); background-position: left bottom; background-repeat: repeat-x; float: left; display: block; height: 40px; white-space: nowrap;"><a
 
-              href="details.html"
+              href="{% url 'WikiNews:itemdetails' %}"
 
               style="text-decoration: none; color: rgb(6, 69, 173); background: linear-gradient(rgba(167, 215, 249, 0) 0px, rgb(167, 215, 249) 100%) right bottom / 1px 100% no-repeat; box-sizing: border-box; display: block; float: left; height: 3.07692em; position: relative; padding-top: 1.25em; padding-left: 8px; padding-right: 8px; font-size: 0.8125em; cursor: pointer;">Article</a></li>
           <li id="ca-main-talk" style="margin: 0px; padding: 0px; line-height: 1.125em; background-image: linear-gradient(to top, rgb(119, 193, 246) 0px, rgb(232, 242, 248) 1px, rgb(255, 255, 255) 100%); background-position: left bottom; background-repeat: repeat-x; float: left; display: block; height: 40px; white-space: nowrap;"><a
 
-              href="collaboration.html"
+              href="{% url 'WikiNews:collaboration' %}"
 
               style="text-decoration: none; color: rgb(6, 69, 173); background: linear-gradient(rgba(167, 215, 249, 0) 0px, rgb(167, 215, 249) 100%) right bottom / 1px 100% no-repeat; box-sizing: border-box; display: block; float: left; height: 3.07692em; position: relative; padding-top: 1.25em; padding-left: 8px; padding-right: 8px; font-size: 0.8125em; cursor: pointer;">Collaboration</a></li>
           <li id="ca-nstab-comments" class="selected" style="margin: 0px; padding: 0px; line-height: 1.125em; background: rgb(255, 255, 255); float: left; display: block; height: 40px; white-space: nowrap;"><a
 
-              href="opinions.html"
+              href="{% url 'WikiNews:opinions' %}"
 
               style="text-decoration: none; color: rgb(32, 33, 34); background: linear-gradient(rgba(167, 215, 249, 0) 0px, rgb(167, 215, 249) 100%) right bottom / 1px 100% no-repeat; box-sizing: border-box; display: block; float: left; height: 3.07692em; position: relative; padding-top: 1.25em; padding-left: 8px; padding-right: 8px; font-size: 0.8125em; cursor: pointer;">Opinions</a></li>
         </ul>

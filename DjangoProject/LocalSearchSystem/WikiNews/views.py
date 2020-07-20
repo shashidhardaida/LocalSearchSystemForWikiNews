@@ -19,3 +19,9 @@ def SearchResultView(request):
 
 def SearchItemResultView(request):
     return render(request, 'search-item-result.html')
+
+def CollaborationView(request):
+    return render(request, 'collaboration.html')
+
+def OpinionsView(request):
+    return render(request, 'opinions.html')
