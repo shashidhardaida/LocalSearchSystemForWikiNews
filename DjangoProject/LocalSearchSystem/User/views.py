@@ -1,8 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .models import User
+# from .models import User
 from .import views
-from .forms import LoginForm
+# from .forms import LoginForm
 
 
 
@@ -14,15 +14,15 @@ def LoginView(request):
 
 
 def UserView(request):
-    data = User.objects.all()
+    # data = User.objects.all()
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
         print(username)
         print(password)
-        if username == 'user01':
+        if username == 'admin':
             return render(request, 'user-management.html',{'data':data})
-        elif username == 'user02':
+        elif username == 'anonymous':
             return SearchView(request)
 
 

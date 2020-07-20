@@ -46,26 +46,18 @@
                 <table id="user_table" class="table table-bordered">
                     <thead>
                         <tr>
+                            <th>User Id</th>
                             <th>UserName</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
                             <th>Password</th>
-                            <th>Account Status</th>
-                            <th>User Type</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for x in data %}
                         <tr>
+                            <td>{{x.userid}}</td>
                             <td>{{x.username}}</td>
-                            <td>{{x.firstname}}</td>
-                            <td>{{x.lastname}}</td>
-                            <td>{{x.email}}</td>
                             <td>{{x.password}}</td>
-                            <td><span class="greendot"></span>{{x.status}}</td>
-                            <td>{{x.usertype}}</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
