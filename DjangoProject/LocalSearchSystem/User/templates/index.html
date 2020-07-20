@@ -15,7 +15,7 @@
         <a class="title" href="#"><img src="/static/images/logo.png" alt="logo" style="width:60px;"> Local Search System</a>
     </header>
     
-    <form class="form" action="/user/usermanagement" method="POST">
+    <form class="form" action="{% url 'User:localsearchsystem' %}" method="POST">
         {% csrf_token %}
         <img class="login_icon" src="/static/images/loginnew.png" alt="logo">
         <p>User Name: </p>

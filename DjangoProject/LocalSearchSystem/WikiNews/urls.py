@@ -6,5 +6,6 @@ app_name = 'WikiNews'
 urlpatterns = [
     path('item-management/', views.ItemManagementView, name='itemmanagement'),
     path('web-scrapping/', views.WebScrappingView, name = "webscrapping"),
-    path('Item-details/', views.ItemDetailView, name = "itemdetails")
+    path('Item-details/', views.ItemDetailView, name = "itemdetails"),
+    path('search-item/', views.SearchView, name = "searchitem")
 ]

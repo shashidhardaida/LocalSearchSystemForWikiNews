@@ -10,3 +10,6 @@ def WebScrappingView(request):
 
 def ItemDetailView(request):
     return render(request, 'details.html')
+
+def SearchView(request):
+    return render(request, 'search.html')

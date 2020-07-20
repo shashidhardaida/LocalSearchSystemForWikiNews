@@ -4,22 +4,31 @@ from .models import User
 from .import views
 from .forms import LoginForm
 
+
 # Create your views here.
 
 def LoginView(request):
     return render(request, 'index.html')
 
 
-def UserManagementView(request):
+def UserView(request):
     data = User.objects.all()
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
         print(username)
         print(password)
-    return render(request, 'user-management.html',{'data':data})
+        if username == 'user01':
+            return render(request, 'user-management.html',{'data':data})
+        elif username == 'user02':
+            return render(request, 'search.html')
+
 
 
 def LogoutView(request):
     return render(request, 'index.html')
+
+def UserManagementView(request):
+    data = User.objects.all()
+    return  render(request, 'user-management.html', {'data':data})
 
