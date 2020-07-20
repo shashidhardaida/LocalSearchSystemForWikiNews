@@ -15,16 +15,16 @@
 
           alt="logo" style="width:60px;"> Local Search System</a> <a class="signout"
 
-        href="index.html"><i class="fa fa-sign-out navtext" title="Sign out"></i>
+        href="{% url 'User:logout' %}"><i class="fa fa-sign-out navtext" title="Sign out"></i>
         Sign Out</a> </header>
     <div class="container">
-      <form id="search_form" class="overlay-content">
+      <form id="search_form" action="{% url 'WikiNews:searchresult' %}" class="overlay-content">
         <h2 class="heading">WikiNews Search</b></h2>
         <input placeholder="Enter Keyword" id="search_result" class="overlay-text"
 
           type="text"> <input class="overlay-button" value="Submit" type="submit">
       </form>
     </div>
-    <script src="/static/js/search.js"></script>
+<!--    <script src="/static/js/search.js"></script>-->
   </body>
 </html>

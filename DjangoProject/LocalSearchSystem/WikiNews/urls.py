@@ -7,5 +7,7 @@ urlpatterns = [
     path('item-management/', views.ItemManagementView, name='itemmanagement'),
     path('web-scrapping/', views.WebScrappingView, name = "webscrapping"),
     path('Item-details/', views.ItemDetailView, name = "itemdetails"),
-    path('search-item/', views.SearchView, name = "searchitem")
+    path('search-result/', views.SearchResultView, name = "searchresult"),
+    path('search-item-result/', views.SearchItemResultView, name='searchitemresult')
+
 ]

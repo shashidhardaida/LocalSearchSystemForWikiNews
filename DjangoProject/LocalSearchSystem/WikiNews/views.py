@@ -13,3 +13,9 @@ def ItemDetailView(request):
 
 def SearchView(request):
     return render(request, 'search.html')
+
+def SearchResultView(request):
+    return render(request,'search-result.html')
+
+def SearchItemResultView(request):
+    return render(request, 'search-item-result.html')

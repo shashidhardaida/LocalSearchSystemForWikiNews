@@ -5,6 +5,8 @@ from .import views
 from .forms import LoginForm
 
 
+
+
 # Create your views here.
 
 def LoginView(request):
@@ -21,9 +23,11 @@ def UserView(request):
         if username == 'user01':
             return render(request, 'user-management.html',{'data':data})
         elif username == 'user02':
-            return render(request, 'search.html')
+            return SearchView(request)
 
 
+def SearchView(request):
+    return render(request, 'search.html')
 
 def LogoutView(request):
     return render(request, 'index.html')
