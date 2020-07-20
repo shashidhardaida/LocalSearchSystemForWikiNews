@@ -1,8 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-# from .models import User
+from .models import User
 from .import views
-# from .forms import LoginForm
+from .forms import LoginForm
 
 
 
@@ -14,7 +14,7 @@ def LoginView(request):
 
 
 def UserView(request):
-    # data = User.objects.all()
+    data = User.objects.all()
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
