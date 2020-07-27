@@ -1,29 +1,36 @@
+from django.contrib.auth import authenticate
+from django.contrib.auth.password_validation import validate_password
+from django.core import exceptions
+from django.core.validators import validate_email
 from django.forms import ModelForm
 from django import  forms
 from .models import User
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 
-class LoginForm(ModelForm):
-    class Meta:
-        model = User
-        fields = ["username", "password"]
+
+
+class NewUserForm(forms.Form):
+    email = forms.EmailField(label='email' ,max_length=255)
+    password = forms.CharField(widget=forms.PasswordInput(), max_length=100)
+    password2 = forms.CharField(widget=forms.PasswordInput(), max_length=100)
+    admin = forms.BooleanField(label='isadmin')
+
+
+
+class UserLoginForm(forms.Form):
+    username = forms.CharField(max_length=30)
+    password = forms.CharField(widget=forms.PasswordInput())
 
     def clean(self):
-        data = User.objects.all()
-        super(LoginForm, self).clean()
+        users = User.objects.filter(username=self.cleaned_data['username'])
+        user = authenticate(username = self.cleaned_data['username'], password=self.cleaned_data['password'])
+        if len(users) == 0 and user is None:
+            raise forms.ValidationError("Invalid username or password. Please try again!")
+        return self.cleaned_data
 
+    def login(self, request):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
-
-        for item in data:
-            if username != item.username:
-                self._errors['username'] = self.error_class([
-                    'Invalid username'])
-            elif password != item.password:
-                self._errors['password'] = self.error_class([
-                    'Invalid password'])
-            else:
-                break
-
-
-        return self.cleaned_data
+        user = authenticate(username=username, password=password)
+        return user
