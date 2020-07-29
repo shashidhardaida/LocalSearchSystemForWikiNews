@@ -115,12 +115,14 @@ def ScrapWikiNews(request):
 
 
 def ItemManagementView(request):
-    return render(request, 'item-management.html')
+    itemList = WikiNewsItem.objects.all()
+    return render(request, 'item-management.html', {'itemList': itemList})
 
 def WebScrappingView(request):
     return render(request, 'web-scrapping.html')
 
-def ItemDetailView(request):
+def ItemDetailView(request, itemId):
+    print(itemId)
     return render(request, 'details.html')
 
 def SearchView(request):
@@ -137,3 +139,12 @@ def CollaborationView(request):
 
 def OpinionsView(request):
     return render(request, 'opinions.html')
+
+
+def DelItem(request,itemId):
+    # if request.session.get('username')==None:
+    #     return HttpResponseRedirect('/users/login')
+    print(itemId)
+    item=WikiNewsItem.objects.get(id=itemId)
+    item.delete()
+    return ItemManagementView(request)
