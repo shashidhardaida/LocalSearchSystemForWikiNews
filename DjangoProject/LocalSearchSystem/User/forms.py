@@ -4,17 +4,17 @@ from django.core import exceptions
 from django.core.validators import validate_email
 from django.forms import ModelForm
 from django import  forms
-from .models import User
+from .models import User, WikiNewsUser
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 
 
 
 class NewUserForm(forms.Form):
-    email = forms.EmailField(label='email' ,max_length=255)
+    username = forms.CharField(label='username' ,max_length=255)
     password = forms.CharField(widget=forms.PasswordInput(), max_length=100)
     password2 = forms.CharField(widget=forms.PasswordInput(), max_length=100)
-    admin = forms.BooleanField(label='isadmin')
+    isadmin = forms.BooleanField(label='isadmin')
 
 
 
@@ -23,7 +23,7 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput())
 
     def clean(self):
-        users = User.objects.filter(username=self.cleaned_data['username'])
+        users = WikiNewsUser.objects.filter(username=self.cleaned_data['username'])
         user = authenticate(username = self.cleaned_data['username'], password=self.cleaned_data['password'])
         if len(users) == 0 and user is None:
             raise forms.ValidationError("Invalid username or password. Please try again!")

@@ -20,6 +20,7 @@ import WikiNews.views as wikinewsview
 
 
 urlpatterns = [
+    path('', userview.LoginView),
     path('admin/', admin.site.urls),
     path('user/', include('User.urls')),
     path('wikinews/', include('WikiNews.urls'))

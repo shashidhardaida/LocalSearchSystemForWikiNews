@@ -57,3 +57,14 @@ class User(AbstractBaseUser):
 
     class Meta:
         db_table = 'User'
+
+
+
+class WikiNewsUser(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=200, null=True, unique=True)
+    password = models.CharField(max_length=100)
+    is_admin = models.BooleanField(default=True)
+
+    class Meta:
+        db_table = 'WikiNewsUser'

@@ -54,8 +54,8 @@
                                     <div class="modal-body">
                                         <form id="newuserform" action="{% url 'User:usermanagement' %}" method="POST">
                                             {% csrf_token %}
-                                            <p>Email:</p>
-                                            <input class="input" type="text" id="email" name="email">
+                                            <p>Username:</p>
+                                            <input class="input" type="text" id="username" name="username">
                                             <p>Password:</p>
                                             <input class="input" type="password" id="password" name="password">
                                             <p>Confirm Password:</p>
@@ -86,9 +86,9 @@
                     {% for x in data %}
                         <tr>
                             <td>{{x.id}}</td>
-                            <td>{{x.email}}</td>
+                            <td>{{x.username}}</td>
                             <td>{{x.password}}</td>
-                            <td>{{x.admin}}</td>
+                            <td>{{x.is_admin}}</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

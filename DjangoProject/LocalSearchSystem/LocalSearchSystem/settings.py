@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'LocalSearchSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wikinews',
+        'NAME': 'LocalSearchSystem',
         'USER': 'root',
         'PASSWORD': 'Step@2020',
         'HOST': '127.0.0.1',
