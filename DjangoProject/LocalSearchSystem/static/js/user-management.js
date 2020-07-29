@@ -7,7 +7,7 @@
 
 
 $(document).ready(function(){
-//	$('[data-toggle="tooltip"]').tooltip();
+$('[data-toggle="tooltip"]').tooltip();
 	// Append table with add row form on add new button click
 //    $(".add-new").click(function(){
 //		$(this).attr("disabled", "disabled");
@@ -53,6 +53,7 @@ $(document).ready(function(){
 		});
 		$(this).parents("tr").find(".add, .edit").toggle();
 		$(".add-new").attr("disabled", "disabled");
+
     });
 	// Delete row on delete button click
 	$(document).on("click", ".delete", function(){

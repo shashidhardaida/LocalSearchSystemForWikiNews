@@ -52,7 +52,7 @@
                                             <h4 class="modal-title">Create User</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form id="newuserform" action="{% url 'User:usermanagement' %}" method="POST">
+                                        <form id="newuserform" action="{% url 'User:newuser' %}" method="POST">
                                             {% csrf_token %}
                                             <p>Username:</p>
                                             <input class="input" type="text" id="username" name="username">

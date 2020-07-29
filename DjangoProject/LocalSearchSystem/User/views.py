@@ -6,7 +6,7 @@ from .forms import NewUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.template.context_processors import csrf
 from django.utils.datastructures import MultiValueDictKeyError
-
+from django.core.paginator import  Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 
 
 
@@ -50,6 +50,11 @@ def LogoutView(request):
     return render(request, 'index.html')
 
 def UserManagementView(request):
+    userList = WikiNewsUser.objects.all()
+    return render(request, 'user-management.html', {'data': userList})
+
+
+def NewUserView(request):
     form = NewUserForm(request.POST)
     if request.method == 'POST':
         try:
@@ -68,9 +73,5 @@ def UserManagementView(request):
             model.save()
             # return render(request, 'user-management.html')
         except:
-            data = WikiNewsUser.objects.all()
-            return render(request, 'user-management.html', {'data': data})
-    data = WikiNewsUser.objects.all()
-    return render(request, 'user-management.html', {'data': data})
-
-
+           return HttpResponseRedirect('/user/usermanagement')
+    return  HttpResponseRedirect('/user/usermanagement')
