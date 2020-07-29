@@ -4,7 +4,7 @@ from django.core import exceptions
 from django.core.validators import validate_email
 from django.forms import ModelForm
 from django import  forms
-from .models import User, WikiNewsUser
+from .models import  WikiNewsUser
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 
