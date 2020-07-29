@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
 from scrapy.utils.log import configure_logging
+from .models import WikiNewsItem
 
 # Create your views here.
 
@@ -72,10 +73,10 @@ class Wikinews_items(scrapy.Spider):
                 strings.append(str(error))
 
         paragraph_data = {
-            'Title': response.css('#firstHeading::text').extract_first(),
+            'title': response.css('#firstHeading::text').extract_first(),
             'image': response.xpath(
                 '//*[@id="mw-content-text"]//div//table//tbody//tr//td//a//img/@src').extract_first(),
-            'strings': strings
+            'text': strings
         }
         Paragraph_Data.append(paragraph_data)
         return paragraph_data
@@ -103,13 +104,15 @@ def crawl(url):
 def ScrapWikiNews(request):
     if request.method == 'POST':
         url = request.POST.get('urlinput')
-        print(url)
         crawl(url)
         reactor.run()
-        print(Paragraph_Data)
         wikinewsdata = pd.DataFrame(Paragraph_Data)
+        wikinewsdata['image'] = wikinewsdata['image'].apply(lambda x: ('https:' + x) if x != None else x)
         print(wikinewsdata)
+        WikiNewsItem.objects.bulk_create(WikiNewsItem(**vals) for vals in wikinewsdata.to_dict('records'))
     return  render(request,'web-scrapping.html')
+
+
 
 def ItemManagementView(request):
     return render(request, 'item-management.html')
