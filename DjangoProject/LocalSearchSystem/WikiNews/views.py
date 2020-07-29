@@ -25,3 +25,11 @@ def CollaborationView(request):
 
 def OpinionsView(request):
     return render(request, 'opinions.html')
+
+
+def ScrapWikiNews(request):
+    if request.method == 'POST':
+        url = request.POST.get('urlinput')
+        print(url)
+
+    return  render(request,'web-scrapping.html')
