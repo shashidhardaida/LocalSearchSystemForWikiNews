@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Details</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/home.css">
+	<link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/details.css">
+</head>
+
+<body>
+	<header>
+		<a class="title" href="#"><img src="/static/images/logo.png" alt="logo" style="width:60px;"> Local Search System</a>
+	</header>
+
+	<div id="main_div" class="container">
+
+      {% for item in items %}
+        <h1>{{item.title}}</h1>
+        {% if item.image != "" %}
+          <img class="center" alt="Image Not Available" src={{item.image}} >
+        {% endif %}
+      {% endfor %}
+
+      {% for paragraph in paragraphs %}
+        <p> {{paragraph}} </p>
+      {% endfor %}
+	</div>
+    <br/><br/><br/><br/>
+	<script src="/static/js/index.js"></script>
+
+</body>
+</html>
