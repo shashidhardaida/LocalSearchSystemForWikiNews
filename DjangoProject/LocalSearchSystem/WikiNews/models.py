@@ -49,7 +49,8 @@ class WikiNewsItem(models.Model):
     id = models.AutoField(primary_key = True)
     title = models.CharField(max_length=500, null=True)
     text = models.TextField()
-    image = models.CharField(max_length=200)
+    image = models.TextField()
+    lastUpdated = models.DateField(null=True)
 
     class Meta:
         db_table = 'WikiNewsItem'

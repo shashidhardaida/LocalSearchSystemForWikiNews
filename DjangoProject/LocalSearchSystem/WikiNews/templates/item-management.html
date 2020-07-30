@@ -46,8 +46,8 @@
                     <thead>
                         <tr>
                             <th>Item Id</th>
-<!--                            <th>Item Name</th>-->
-                            <th>Content</th>
+                            <th>Item Name</th>
+                            <th>Latest Updated</th>
 							<th>Actions</th>
                         </tr>
                     </thead>
@@ -55,9 +55,8 @@
                         {% for item in itemList %}
                         <tr>
                             <td>{{item.id}}</td>
-<!--                            <td><a href="{% url 'WikiNews:itemdetails' %}"/>{{item.title}}</td>-->
                             <td><a onclick="itemDetail({{item.id}});" />{{item.title}}</td>
-<!--                            <td>{{item.text}}</td>-->
+                            <td>{{item.lastUpdated}}</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

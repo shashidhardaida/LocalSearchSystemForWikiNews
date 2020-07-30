@@ -18,6 +18,7 @@ Paragraph_Data = []
 continents = []
 continents_urls = []
 
+
 class Wikipedia(scrapy.Spider):
     name = "Wikipedia"
     # start_urls = [
@@ -29,7 +30,6 @@ class Wikipedia(scrapy.Spider):
             title = sel.xpath('a/text()').extract()
             link = sel.xpath('a/@href').extract()
             continents.append(zip(title, link))
-        return continents
 
 
 class Wikinews(scrapy.Spider):
@@ -40,7 +40,7 @@ class Wikinews(scrapy.Spider):
             title = sel.xpath('a/text()').extract()
             link = sel.xpath('a/@href').extract()
             result.append((title[0], link[0]))
-        return result
+
 
 class Wikinews_items(scrapy.Spider):
     name = "Wikinews_items"
@@ -62,28 +62,33 @@ class Wikinews_items(scrapy.Spider):
             value = re.sub(r' +', ' ', value)
             return value.strip()
 
-        strings = []
+        strings = ""
         for i in range(0, 100):
             try:
                 for node in response.xpath('//*[@id="mw-content-text"]/div/p[{}]'.format(i)):
                     text = _clean(node.xpath('string()').extract())
                     if len(text):
-                        strings.append(text)
+                        strings = strings + text + "<br>"
             except Exception as error:
-                strings.append(str(error))
+                pass
+
+        try:
+            image = 'https:' + response.xpath('//img[@class="thumbimage"]/@src').extract_first()
+        except:
+            image = ""
 
         paragraph_data = {
             'title': response.css('#firstHeading::text').extract_first(),
-            'image': response.xpath(
-                '//*[@id="mw-content-text"]//div//table//tbody//tr//td//a//img/@src').extract_first(),
+            'lastUpdated': response.xpath('//*[@id="publishDate"]/@title').extract_first(),
+            'image': image,
             'text': strings
         }
         Paragraph_Data.append(paragraph_data)
-        return paragraph_data
 
 
 configure_logging()
 runner = CrawlerRunner()
+
 
 @defer.inlineCallbacks
 def crawl(url):
@@ -107,7 +112,7 @@ def ScrapWikiNews(request):
         crawl(url)
         reactor.run()
         wikinewsdata = pd.DataFrame(Paragraph_Data)
-        wikinewsdata['image'] = wikinewsdata['image'].apply(lambda x: ('https:' + x) if x != None else x)
+        # wikinewsdata['image'] = wikinewsdata['image'].apply(lambda x: ('https:' + x) if x != None else x)
         print(wikinewsdata)
         WikiNewsItem.objects.bulk_create(WikiNewsItem(**vals) for vals in wikinewsdata.to_dict('records'))
     return  render(request,'web-scrapping.html')
@@ -123,7 +128,15 @@ def WebScrappingView(request):
 
 def ItemDetailView(request, itemId):
     print(itemId)
-    return render(request, 'details.html')
+    items = WikiNewsItem.objects.filter(id=itemId)
+    paragraphs =[]
+    for field in items:
+        content = field.text
+        print(content)
+        paragraphs = content.split('<br>')
+
+    return render(request, 'details.html', {'items':items,'paragraphs':paragraphs})
+
 
 def SearchView(request):
     return render(request, 'search.html')
