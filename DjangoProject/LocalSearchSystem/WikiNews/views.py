@@ -4,7 +4,6 @@ import re
 import pandas as pd
 import unicodedata
 from scrapy.crawler import CrawlerProcess
-import lupyne
 from urllib.parse import urlparse
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
