@@ -4,6 +4,7 @@ import re
 import pandas as pd
 import unicodedata
 from scrapy.crawler import CrawlerProcess
+import lupyne
 from urllib.parse import urlparse
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
@@ -159,7 +160,6 @@ def SearchItemResultView(request):
     return render(request, 'search-item-result.html')
 
 
-
 def DelItem(request,itemId):
     # if request.session.get('username')==None:
     #     return HttpResponseRedirect('/users/login')
@@ -167,3 +167,7 @@ def DelItem(request,itemId):
     item=WikiNewsItem.objects.get(id=itemId)
     item.delete()
     return ItemManagementView(request)
+
+
+
+
