@@ -112,9 +112,20 @@ def ScrapWikiNews(request):
         crawl(url)
         reactor.run()
         wikinewsdata = pd.DataFrame(Paragraph_Data)
+
         # wikinewsdata['image'] = wikinewsdata['image'].apply(lambda x: ('https:' + x) if x != None else x)
+        # print(wikinewsdata)
+        items = WikiNewsItem.objects.all()
+        titles=[]
+        for item in items:
+            titles.append(item.title)
+        wikinewsdata=wikinewsdata[wikinewsdata["title"].isin(titles) == False]
         print(wikinewsdata)
-        WikiNewsItem.objects.bulk_create(WikiNewsItem(**vals) for vals in wikinewsdata.to_dict('records'))
+        try:
+            WikiNewsItem.objects.bulk_create(WikiNewsItem(**vals) for vals in wikinewsdata.to_dict('records'))
+        except:
+            pass
+
     return  render(request,'web-scrapping.html')
 
 
