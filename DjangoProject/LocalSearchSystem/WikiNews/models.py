@@ -52,5 +52,8 @@ class WikiNewsItem(models.Model):
     image = models.TextField()
     lastUpdated = models.DateField(null=True)
 
+    def __unicode__(self):
+        return "{}".format(self.title)
+
     class Meta:
         db_table = 'WikiNewsItem'
