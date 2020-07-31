@@ -62,3 +62,10 @@ def SearchView(request):
 
 def LogoutView(request):
     return render(request, 'index.html')
+
+
+
+def DelUser(request,userId):
+    user=WikiNewsUser.objects.get(id=userId)
+    user.delete()
+    return  HttpResponseRedirect('/user/usermanagement')

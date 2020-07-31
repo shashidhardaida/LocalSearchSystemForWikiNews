@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 import scrapy
 import re
@@ -153,7 +154,7 @@ def DelItem(request,itemId):
     print(itemId)
     item=WikiNewsItem.objects.get(id=itemId)
     item.delete()
-    return ItemManagementView(request)
+    return HttpResponseRedirect('/wikinews/item-management/')
 
 
 
