@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .import views
 
 app_name = 'WikiNews'
@@ -10,6 +10,7 @@ urlpatterns = [
     path('search-result/', views.SearchResultView, name = "searchresult"),
     path('search-item-result/', views.SearchItemResultView, name='searchitemresult'),
     path('scrapping/', views.ScrapWikiNews, name='scrapping'),
-    path('item/del/<int:itemId>',views.DelItem)
+    path('item/del/<int:itemId>',views.DelItem),
+    path('search/', include('haystack.urls')),
 
 ]

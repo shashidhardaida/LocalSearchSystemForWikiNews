@@ -19,12 +19,13 @@ def LoginAction(request):
     if request.method == 'POST':
         username = request.POST.get("username")
         user = WikiNewsUser.objects.raw('select id, is_admin from wikinewsuser where username= %s',[username])
+        admin = False
         for field in user:
-            print(field.is_admin)
-        if field.is_admin == True:
+            admin = field.is_admin
+        if admin:
             return UserManagementView(request)
         else:
-            return SearchView(request)
+            return HttpResponseRedirect('/wikinews/search/')
     return render(request, 'index.html')
 
 
@@ -57,7 +58,7 @@ def NewUserView(request):
 
 
 def SearchView(request):
-    return render(request, 'search.html')
+    return HttpResponseRedirect('/user/search/')
 
 def LogoutView(request):
     return render(request, 'index.html')

@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('User.urls')),
     path('wikinews/', include('WikiNews.urls')),
-    url(r'^search/', include('haystack.urls')),
+    path('search/', include('haystack.urls')),
 
 ]
 

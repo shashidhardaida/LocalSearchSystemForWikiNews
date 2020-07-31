@@ -17,8 +17,8 @@ function delItem(itemId){
     }
 }
 
-function itemDetail(itemId){
+function itemDetail(itemTitle){
 
-location.href = '/wikinews/itemdetails/'+itemId;
+location.href = '/wikinews/itemdetails/'+itemTitle;
 
 }

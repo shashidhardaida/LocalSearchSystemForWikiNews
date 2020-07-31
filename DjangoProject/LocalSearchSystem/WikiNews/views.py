@@ -112,9 +112,6 @@ def ScrapWikiNews(request):
         crawl(url)
         reactor.run()
         wikinewsdata = pd.DataFrame(Paragraph_Data)
-
-        # wikinewsdata['image'] = wikinewsdata['image'].apply(lambda x: ('https:' + x) if x != None else x)
-        # print(wikinewsdata)
         items = WikiNewsItem.objects.all()
         titles=[]
         for item in items:
@@ -149,8 +146,8 @@ def ItemDetailView(request, itemId):
     return render(request, 'details.html', {'items':items,'paragraphs':paragraphs})
 
 
-def SearchView(request):
-    return render(request, 'search.html')
+# def SearchView(request):
+#     return render(request, 'search.html')
 
 def SearchResultView(request):
     return render(request,'search-result.html')

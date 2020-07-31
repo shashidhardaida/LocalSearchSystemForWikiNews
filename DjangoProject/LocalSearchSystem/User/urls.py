@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .import views
 
 
@@ -11,4 +11,5 @@ urlpatterns = [
     path('usermanagement', views.UserManagementView, name = "usermanagement"),
     path('newuser', views.NewUserView, name = "newuser"),
     path('Searchpage', views.SearchView, name = "searchpage"),
+    path('search/', include('haystack.urls')),
 ]

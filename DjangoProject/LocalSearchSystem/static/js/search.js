@@ -8,3 +8,7 @@
 //         form.action = "search-result.html";
 ////    }
 //};
+
+function searchResult(searchResults){
+alert(searchResults)
+}
