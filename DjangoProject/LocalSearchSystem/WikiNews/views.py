@@ -116,8 +116,10 @@ def ScrapWikiNews(request):
         titles=[]
         for item in items:
             titles.append(item.title)
-        wikinewsdata=wikinewsdata[wikinewsdata["title"].isin(titles) == False]
-        print(wikinewsdata)
+
+        wikinewsdata = wikinewsdata.drop_duplicates(subset='title', keep="first")
+        wikinewsdata = wikinewsdata[wikinewsdata["title"].isin(titles) == False]
+
         try:
             WikiNewsItem.objects.bulk_create(WikiNewsItem(**vals) for vals in wikinewsdata.to_dict('records'))
         except:
@@ -131,13 +133,13 @@ def ItemManagementView(request):
     itemList = WikiNewsItem.objects.all()
     return render(request, 'item-management.html', {'itemList': itemList})
 
+
 def WebScrappingView(request):
     return render(request, 'web-scrapping.html')
 
-def ItemDetailView(request, itemTitle):
-    print(itemTitle)
-    itemTitle = itemTitle.replace('__', ' ')
-    items = WikiNewsItem.objects.filter(title=itemTitle)
+
+def ItemDetailView(request, itemId):
+    items = WikiNewsItem.objects.filter(id=itemId)
     paragraphs =[]
     for field in items:
         content = field.text
@@ -147,19 +149,7 @@ def ItemDetailView(request, itemTitle):
     return render(request, 'details.html', {'items':items,'paragraphs':paragraphs})
 
 
-# def SearchView(request):
-#     return render(request, 'search.html')
-
-def SearchResultView(request):
-    return render(request,'search-result.html')
-
-def SearchItemResultView(request):
-    return render(request, 'search-item-result.html')
-
-
 def DelItem(request,itemId):
-    # if request.session.get('username')==None:
-    #     return HttpResponseRedirect('/users/login')
     print(itemId)
     item=WikiNewsItem.objects.get(id=itemId)
     item.delete()

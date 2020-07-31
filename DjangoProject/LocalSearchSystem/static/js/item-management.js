@@ -17,7 +17,7 @@ function delItem(itemId){
     }
 }
 
-function itemDetail(itemTitle){
-    itemTitle = itemTitle.replace(/\s/g, '__')
-    location.href = '/wikinews/itemdetails/'+ itemTitle;
+function itemDetail(itemId){
+
+    location.href = '/wikinews/itemdetails/'+ itemId;
 }

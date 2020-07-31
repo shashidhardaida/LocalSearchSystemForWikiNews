@@ -6,9 +6,7 @@ app_name = 'WikiNews'
 urlpatterns = [
     path('item-management/', views.ItemManagementView, name='itemmanagement'),
     path('web-scrapping/', views.WebScrappingView, name = "webscrapping"),
-    path('itemdetails/<slug:itemTitle>', views.ItemDetailView, name = "itemdetails"),
-    path('search-result/', views.SearchResultView, name = "searchresult"),
-    path('search-item-result/', views.SearchItemResultView, name='searchitemresult'),
+    path('itemdetails/<int:itemId>', views.ItemDetailView, name = "itemdetails"),
     path('scrapping/', views.ScrapWikiNews, name='scrapping'),
     path('item/del/<int:itemId>',views.DelItem),
     path('search/', include('haystack.urls')),
