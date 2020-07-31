@@ -7,3 +7,11 @@ function delUser(userId){
     alert("no!")
     }
 }
+
+$(document).ready(function(){
+	var actions = $("table td:last-child").html();
+
+    $('#user_table').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+});
