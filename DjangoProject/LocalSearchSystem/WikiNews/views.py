@@ -134,9 +134,10 @@ def ItemManagementView(request):
 def WebScrappingView(request):
     return render(request, 'web-scrapping.html')
 
-def ItemDetailView(request, itemId):
-    print(itemId)
-    items = WikiNewsItem.objects.filter(id=itemId)
+def ItemDetailView(request, itemTitle):
+    print(itemTitle)
+    itemTitle = itemTitle.replace('__', ' ')
+    items = WikiNewsItem.objects.filter(title=itemTitle)
     paragraphs =[]
     for field in items:
         content = field.text

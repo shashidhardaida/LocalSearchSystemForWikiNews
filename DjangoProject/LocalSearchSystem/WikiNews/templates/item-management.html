@@ -55,7 +55,7 @@
                         {% for item in itemList %}
                         <tr>
                             <td>{{item.id}}</td>
-                            <td><a onclick="itemDetail({{item.title}});" />{{item.title}}</td>
+                            <td><a onclick='itemDetail("{{item.title}}")';>{{item.title}}</a></td>
                             <td>{{item.lastUpdated}}</td>
                             <td>
                                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
