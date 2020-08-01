@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import WikiNewsUser
 from .import views
-from .forms import NewUserForm
+from .forms import NewUserForm, EditUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.template.context_processors import csrf
 from django.utils.datastructures import MultiValueDictKeyError
@@ -69,3 +69,28 @@ def DelUser(request,userId):
     user=WikiNewsUser.objects.get(id=userId)
     user.delete()
     return  HttpResponseRedirect('/user/usermanagement')
+
+
+def EditUser(request):
+    form = EditUserForm(request.POST)
+    if request.method=='POST':
+        print(request.POST['edituserid'])
+        try:
+            userId = request.POST['edituserid']
+            user = WikiNewsUser.objects.get(id=userId)
+            user.username = request.POST['editusername']
+            user.password = request.POST['editpassword']
+            try:
+                is_admin = request.POST['isadmin']
+            except MultiValueDictKeyError:
+                is_admin = False
+            if 'editisadmin' in form.data:
+                user.is_admin = True
+            else:
+                user.is_admin = False
+            user.save()
+        except:
+            return HttpResponseRedirect('/user/usermanagement')
+    return HttpResponseRedirect('/user/usermanagement')
+
+

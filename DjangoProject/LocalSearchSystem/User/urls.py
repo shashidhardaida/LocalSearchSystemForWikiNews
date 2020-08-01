@@ -13,4 +13,5 @@ urlpatterns = [
     path('Searchpage', views.SearchView, name = "searchpage"),
     path('search/', include('haystack.urls')),
     path('del/<int:userId>',views.DelUser),
+    path('ediuser',views.EditUser, name='edituser'),
 ]

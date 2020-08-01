@@ -18,6 +18,15 @@ class NewUserForm(forms.Form):
 
 
 
+class EditUserForm(forms.Form):
+    edituserid = forms.IntegerField(label='edituserid')
+    editusername = forms.CharField(label='editusername' ,max_length=255)
+    editpassword = forms.CharField(widget=forms.PasswordInput(), max_length=100)
+    editisadmin = forms.BooleanField(label='editisadmin')
+
+
+
+
 class UserLoginForm(forms.Form):
     username = forms.CharField(max_length=30)
     password = forms.CharField(widget=forms.PasswordInput())
