@@ -32,54 +32,6 @@ def LoginView(request):
         return render(request, 'index.html', {'form': form})
 
 
-
-# def LoginAction(request):
-#     if request.method == 'POST':
-#         form = UserLoginForm(request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data['username']
-#             password = form.cleaned_data['password']
-#             user = WikiNewsUser.objects.filter(username=username, password=password)
-#             if len(user)>0:
-#                 request.session['username'] = user[0].username
-#                 request.session['id'] = user[0].id
-#                 # username = request.POST.get("username")
-#                 # user = WikiNewsUser.objects.raw('select id, is_admin from wikinewsuser where username= %s',[username])
-#                 admin = False
-#                 for field in user:
-#                     admin = field.is_admin
-#                 if admin:
-#                     return UserManagementView(request)
-#                 else:
-#                     return HttpResponseRedirect('/wikinews/search/')
-#             else:
-#                 return HttpResponseRedirect('/user/login')
-#         else:
-#             return HttpResponseRedirect('/user/login')
-#     else:
-#         return HttpResponseRedirect('/user/login')
-
-def LoginAction(request):
-    if request.method=='POST':
-        userdetails = UserLoginForm(request.POST)
-        if userdetails.is_valid():
-            username = userdetails.cleaned_data['username']
-            user = WikiNewsUser.objects.filter(username=username)
-            admin = False
-            for field in user:
-                admin = field.is_admin
-            if admin:
-                return UserManagementView(request)
-            else:
-                return HttpResponseRedirect('/wikinews/search/')
-
-        else:
-            return render(request, "index.html", {'form': userdetails})
-    else:
-        form = UserLoginForm(None)
-        return render(request, 'index.html', {'form': form})
-
-
 def UserManagementView(request):
     userList = WikiNewsUser.objects.all()
     return render(request, 'user-management.html', {'data': userList})
