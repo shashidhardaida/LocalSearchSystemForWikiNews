@@ -41,8 +41,6 @@ class EditUserForm(forms.Form):
     editisadmin = forms.BooleanField(label='editisadmin')
 
 
-
-
 class UserLoginForm(forms.Form):
     username = forms.CharField(label='User Name',max_length=100, required=True)
     password = forms.CharField(label='Password', widget=forms.PasswordInput(), max_length=100,required=True)
@@ -52,10 +50,15 @@ class UserLoginForm(forms.Form):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
         user = WikiNewsUser.objects.filter(username=username, password=password)
-        print(len(user))
-        print(user)
+        database_password =""
+        for item in user:
+            database_password = item.password
+        # print(user.password)
         if len(user) == 0:
-            self._errors['password'] = self.error_class(['Invalid username or password'])
+            self._errors['username'] = self.error_class(['Invalid username'])
+            self._errors['password'] = self.error_class(['Invalid password'])
+        elif password != database_password:
+            self._errors['password'] = self.error_class(['Invalid password'])
         else:
             return self.cleaned_data
 
