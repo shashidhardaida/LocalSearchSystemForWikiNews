@@ -19,7 +19,7 @@
     </header>
 
     <div class="container">
-        <form method="get" action="." id="search_form" class="overlay-content">
+        <form  method="get" action="." id="search_form" class="overlay-content">
             {{ form.non_field_errors }}
             <h2 class="heading">WikiNews</h2>
             <div class="overlay-text">
@@ -39,7 +39,8 @@
                             </div>
                         </div>
                     {% empty %}
-                    <p>No results found.</p>
+                    <img class="center" src="/static/images/noresults.png" alt="No results found.">
+<!--                    <p class="text-right">No results found.</p>-->
                     {% endfor%}
                 </div>
             </div>
@@ -54,6 +55,7 @@
         function itemDetail(itemId){
             location.href = '/wikinews/itemdetails/'+ itemId;
         }
+
     </script>
   </body>
 </html>

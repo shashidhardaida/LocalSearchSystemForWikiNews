@@ -71,7 +71,7 @@ label {
     display:none;
 }
 .content{
-    margin-bottom: 25px
+    margin-bottom: 25px;
 }
 .signout{
     float:right;
@@ -82,4 +82,10 @@ label {
 }
 .signout:hover{
     text-decoration: none;
+}
+.center {
+  display: block;
+  margin-left:auto;
+  margin-right: auto;
+  width: 50%;
 }
