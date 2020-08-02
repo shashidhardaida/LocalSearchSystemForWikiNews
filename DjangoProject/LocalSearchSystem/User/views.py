@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import WikiNewsUser
 from .import views
-from .forms import NewUserForm, EditUserForm
+from .forms import NewUserForm, EditUserForm, UserLoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.template.context_processors import csrf
 from django.utils.datastructures import MultiValueDictKeyError
@@ -17,16 +17,30 @@ def LoginView(request):
 
 def LoginAction(request):
     if request.method == 'POST':
-        username = request.POST.get("username")
-        user = WikiNewsUser.objects.raw('select id, is_admin from wikinewsuser where username= %s',[username])
-        admin = False
-        for field in user:
-            admin = field.is_admin
-        if admin:
-            return UserManagementView(request)
+        form = UserLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = WikiNewsUser.objects.filter(username=username, password=password)
+            if len(user)>0:
+                request.session['username'] = user[0].username
+                request.session['id'] = user[0].id
+                # username = request.POST.get("username")
+                # user = WikiNewsUser.objects.raw('select id, is_admin from wikinewsuser where username= %s',[username])
+                admin = False
+                for field in user:
+                    admin = field.is_admin
+                if admin:
+                    return UserManagementView(request)
+                else:
+                    return HttpResponseRedirect('/wikinews/search/')
+            else:
+                return HttpResponseRedirect('/user/login')
         else:
-            return HttpResponseRedirect('/wikinews/search/')
-    return render(request, 'index.html')
+            return HttpResponseRedirect('/user/login')
+    else:
+        return HttpResponseRedirect('/user/login')
+
 
 
 def UserManagementView(request):
