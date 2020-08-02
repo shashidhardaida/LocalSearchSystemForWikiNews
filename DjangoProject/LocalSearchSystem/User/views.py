@@ -23,7 +23,7 @@ def LoginView(request):
             if admin:
                 return UserManagementView(request)
             else:
-                return HttpResponseRedirect('/wikinews/search/')
+                return HttpResponseRedirect('/wikinews/userhome/')
 
         else:
             return render(request, "index.html", {'form': userdetails})

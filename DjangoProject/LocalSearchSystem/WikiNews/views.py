@@ -157,5 +157,9 @@ def DelItem(request,itemId):
     return HttpResponseRedirect('/wikinews/item-management/')
 
 
+def UserHome(request):
+    return render(request, 'userhome.html')
+
+
 
 

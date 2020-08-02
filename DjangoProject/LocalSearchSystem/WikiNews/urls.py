@@ -9,6 +9,7 @@ urlpatterns = [
     path('itemdetails/<int:itemId>', views.ItemDetailView, name = "itemdetails"),
     path('scrapping/', views.ScrapWikiNews, name='scrapping'),
     path('item/del/<int:itemId>',views.DelItem),
-    path('search/', include('haystack.urls')),
+    path('searchresult/', include('haystack.urls')),
+    path('userhome/', views.UserHome),
 
 ]
