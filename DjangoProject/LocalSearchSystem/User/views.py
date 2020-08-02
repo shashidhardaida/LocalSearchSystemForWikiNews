@@ -74,20 +74,20 @@ def DelUser(request,userId):
 def EditUser(request):
     form = EditUserForm(request.POST)
     if request.method=='POST':
-        print(request.POST['edituserid'])
         try:
-            userId = request.POST['edituserid']
+            userId = form.data['edituserid']
             user = WikiNewsUser.objects.get(id=userId)
-            user.username = request.POST['editusername']
-            user.password = request.POST['editpassword']
+            user.username = form.data['editusername']
+            user.password = form.data['editpassword']
             try:
-                is_admin = request.POST['isadmin']
+                is_admin = request.POST['editisadmin']
             except MultiValueDictKeyError:
                 is_admin = False
             if 'editisadmin' in form.data:
                 user.is_admin = True
             else:
                 user.is_admin = False
+
             user.save()
         except:
             return HttpResponseRedirect('/user/usermanagement')

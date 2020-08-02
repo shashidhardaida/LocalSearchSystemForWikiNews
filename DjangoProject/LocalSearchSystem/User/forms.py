@@ -14,7 +14,7 @@ class NewUserForm(forms.Form):
     username = forms.CharField(label='username' ,max_length=255)
     password = forms.CharField(widget=forms.PasswordInput(), max_length=100)
     password2 = forms.CharField(widget=forms.PasswordInput(), max_length=100)
-    isadmin = forms.BooleanField(label='isadmin')
+    isadmin = forms.BooleanField(label='editisadmin')
 
 
 
