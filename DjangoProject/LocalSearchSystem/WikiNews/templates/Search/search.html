@@ -81,13 +81,16 @@
   </head>
   <style>
       .searchResult {
-        color:black;
+        color:blue;
         text-decoration: none;
+        text-align:left;
+        font-size: 18px;
+        margin-bottom: 2px;
       }
       .searchResult:hover{
         text-decoration: underline;
         cursor: pointer;
-        color:black;
+        color:blue;
       }
       #id_q{
           padding: 15px;
@@ -103,6 +106,9 @@
         }
         #id_models {
             display:none;
+        }
+        .content{
+            margin-bottom: 25px
         }
   </style>
   <body>
@@ -129,6 +135,7 @@
                         <div class="thumbnail">
                             <div class="form-group">
                                 <p class="searchResult"> <a onclick='itemDetail({{result.id}});'>{{result.title}}</a></p>
+                                <p class="text-justify content">{{result.content|truncatewords:50}}</p>
                             </div>
                         </div>
                     {% empty %}
