@@ -1,68 +1,127 @@
+<!--<!DOCTYPE html>-->
+<!--{% load bootstrap3 %}-->
+<!--{% bootstrap_messages %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <title>Home</title>-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--    <link rel="stylesheet" href="/static/css/index.css">-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> -->
+<!--    </script> -->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> -->
+<!--    </script>-->
+<!--    -->
+<!--</head>-->
+
+<!--<body>  -->
+<!--    -->
+<!--    <header>-->
+<!--        <a class="title" href="#"><img src="/static/images/logo.png" alt="logo" style="width:60px;"> Local Search System</a>-->
+<!--    </header>-->
+<!--    -->
+<!--    <form class="form" action="{% url 'User:loginaction' %}" method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        {% bootstrap_form form %}-->
+<!--&lt;!&ndash;        <input type="hidden" name="next" value="{{ next }}" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <fieldset>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-lg-10 col-lg-offset-2">&ndash;&gt;-->
+<!--&lt;!&ndash;            {% if error_message %}&ndash;&gt;-->
+<!--&lt;!&ndash;                <p><strong>{{ error_message }}</strong></p>&ndash;&gt;-->
+<!--&lt;!&ndash;            {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-sm-offset-2 col-sm-10">&ndash;&gt;-->
+<!--&lt;!&ndash;                <span class="text-danger small">&ndash;&gt;-->
+<!--&lt;!&ndash;                    {% if form.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                        {{  form.non_field_errors }}&ndash;&gt;-->
+<!--&lt;!&ndash;                    {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                </span>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;             <img class="login_icon" src="/static/images/loginnew.png" alt="logo">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="username" class="control-label">Username: </label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="input">&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="text" class="input" id="username" name="username" placeholder="User Name"&ndash;&gt;-->
+<!--&lt;!&ndash;                       required>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="password" class="control-label">Password: </label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="input">&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="password" class="input" id="password" name="password" placeholder="Password"&ndash;&gt;-->
+<!--&lt;!&ndash;                       required>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--        <div class="form-group">-->
+<!--            <input type="submit" class="button" value="Login"/><br>-->
+<!--        </div>-->
+<!--    </fieldset>-->
+
+<!--&lt;!&ndash;        <p>User Name: </p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input class="input" type="text" id="username" name="username">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Password: </p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input class="input" type="password" id="password" name="password">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input class="button" type="submit" value="Login">&ndash;&gt;-->
+<!--&lt;!&ndash;        <span><a href=""><p style="text-align:center">Create User</p><a href=""><p style="text-align:center">Forgot Password?</p></a></a></span>&ndash;&gt;-->
+
+<!--    </form>-->
+
+
+<!--    -->
+<!--    <script src="/static/js/index.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+{% load bootstrap3 %}
+{% bootstrap_messages %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/index.css">
-    
+
+<head >
+
+    <title>Basic Form</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
 </head>
 
-<body>  
-    
-    <header>
-        <a class="title" href="#"><img src="/static/images/logo.png" alt="logo" style="width:60px;"> Local Search System</a>
-    </header>
-    
-    <form class="form" action="{% url 'User:loginaction' %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ next }}" />
-        <fieldset>
-        <div class="col-lg-10 col-lg-offset-2">
-            {% if error_message %}
-                <p><strong>{{ error_message }}</strong></p>
-            {% endif %}
-        </div>
-        <div class="col-sm-offset-2 col-sm-10">
-                <span class="text-danger small">
-                    {% if form.errors %}
-                        {{  form.non_field_errors }}
-                    {% endif %}
-                </span>
-        </div>
-             <img class="login_icon" src="/static/images/loginnew.png" alt="logo">
-            <div class="form-group">
-            <label for="username" class="control-label">Username: </label>
-            <div class="input">
-                <input type="text" class="input" id="username" name="username" placeholder="User Name"
-                       required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password" class="control-label">Password: </label>
-            <div class="input">
-                <input type="password" class="input" id="password" name="password" placeholder="Password"
-                       required>
-            </div>
-        </div>
+<body  style="padding-top: 60px;background-color: #f5f7f8 !important;">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+        <h2>Form</h2>
+             <form action="{% url 'User:loginview' %}" method="post"><input type='hidden'/>
+             {%csrf_token %}
 
-        <div>
-            <input type="submit" class="button" value="Login"/><br>
+                {% bootstrap_form form %}
+<!-This is the form variable which we are passing from the function
+of home in views.py file. That's the beauty of Django we
+don't need to write much codes in this it'll automatically pass
+all the form details in here
+->
+              <div class="form-group">
+                <button type="submit" class="btn btn-default ">
+                  Submit
+                </button>
+
+                  </div>
+
+                </form>
         </div>
-    </fieldset>
+    </div>
+</div>
 
-<!--        <p>User Name: </p>-->
-<!--        <input class="input" type="text" id="username" name="username">-->
-<!--        <p>Password: </p>-->
-<!--        <input class="input" type="password" id="password" name="password">-->
-<!--        <input class="button" type="submit" value="Login">-->
-<!--        <span><a href=""><p style="text-align:center">Create User</p><a href=""><p style="text-align:center">Forgot Password?</p></a></a></span>-->
-
-    </form>
-
-
-    
-    <script src="/static/js/index.js"></script>
 </body>
+
 </html>

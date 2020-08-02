@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'haystack',
     'User',
-    'WikiNews'
+    'WikiNews',
+    'bootstrap3',
     
 ]
 

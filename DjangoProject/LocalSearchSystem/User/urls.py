@@ -5,7 +5,7 @@ from .import views
 app_name = 'User'
 
 urlpatterns = [
-    path('login', views.LoginView),
+    path('login', views.LoginView, name='loginview'),
     path('loginaction', views.LoginAction, name='loginaction'),
     path('login', views.LogoutView, name = "logout"),
     path('usermanagement', views.UserManagementView, name = "usermanagement"),

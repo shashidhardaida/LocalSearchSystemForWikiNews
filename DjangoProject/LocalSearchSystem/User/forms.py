@@ -28,21 +28,22 @@ class EditUserForm(forms.Form):
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label='username',max_length=100, required=True)
-    password = forms.CharField(label='password', widget=forms.PasswordInput(), max_length=100,required=True)
+    username = forms.CharField(label='User Name',max_length=100, required=True)
+    password = forms.CharField(label='Password', widget=forms.PasswordInput(), max_length=100,required=True)
 
-    class Meta:
-        model = WikiNewsUser
-        fields = ('username', 'email', 'password1', 'password2')
-    # def clean(self):
-    #     users = WikiNewsUser.objects.filter(username=self.cleaned_data['username'])
-    #     user = authenticate(username = self.cleaned_data['username'], password=self.cleaned_data['password'])
-    #     if len(users) == 0 and user is None:
-    #         raise forms.ValidationError("Invalid username or password. Please try again!")
-    #     return self.cleaned_data
-    #
-    # def login(self, request):
-    #     username = self.cleaned_data.get('username')
-    #     password = self.cleaned_data.get('password')
-    #     user = authenticate(username=username, password=password)
-    #     return user
+    # class Meta:
+    #     model = WikiNewsUser
+    #     fields = ['username', 'password']
+
+    def clean(self):
+        super(UserLoginForm, self).clean()
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = WikiNewsUser.objects.filter(username=username, password=password)
+        print(len(user))
+        print(user)
+        if len(user) == 0:
+            self._errors['password'] = self.error_class(['Invalid username or password'])
+        else:
+            return self.cleaned_data
+
