@@ -15,8 +15,8 @@ def LoginView(request):
         userdetails = UserLoginForm(request.POST)
         if userdetails.is_valid():
             username = userdetails.cleaned_data['username']
-            print(username)
             user = WikiNewsUser.objects.filter(username=username)
+            request.session['username'] = user[0].username
             admin = False
             for field in user:
                 admin = field.is_admin
@@ -37,34 +37,28 @@ def UserManagementView(request):
     return render(request, 'user-management.html', {'data': userList})
 
 
+
 def NewUserView(request):
-    form = NewUserForm(request.POST)
     if request.method == 'POST':
-        try:
-            print(form.data)
+        newuserdetails = NewUserForm(request.POST)
+        if newuserdetails.is_valid():
             model = WikiNewsUser()
-            model.username = form.data['username']
-            model.password = form.data['password']
-            try:
-                is_admin = request.POST['isadmin']
-            except MultiValueDictKeyError:
-                is_admin = False
-            if 'isadmin' in form.data:
-                model.is_admin = True
-            else:
-                model.is_admin = False
+            model.username = newuserdetails.cleaned_data['username']
+            model.password = newuserdetails.cleaned_data['password']
+            model.is_admin = newuserdetails.cleaned_data['isadmin']
+            print(newuserdetails.cleaned_data['isadmin'])
             model.save()
-            # return render(request, 'user-management.html')
-        except:
-           return HttpResponseRedirect('/user/usermanagement')
-    return  HttpResponseRedirect('/user/usermanagement')
+            return HttpResponseRedirect('/user/usermanagement')
+        else:
+            return render(request, 'newuser.html', {'form': newuserdetails})
+    else:
+        form = NewUserForm(None)
+        return render(request, 'newuser.html', {'form': form})
 
-
-def SearchView(request):
-    return HttpResponseRedirect('/user/search/')
 
 def LogoutView(request):
-    return render(request, 'index.html')
+    del request.session['username']
+    return HttpResponseRedirect('/user/login')
 
 
 

@@ -1,3 +1,7 @@
+function newUser(){
+    location.href = '/user/newuser'
+}
+
 function delUser(userId) {
 	var con = confirm('Are you sure you want to delete this User?');
 	if (con === true) {
@@ -14,11 +18,6 @@ $(document).ready(function() {
 		"pagingType": "full_numbers"
 	});
 });
-
-function getUser(userId){
-    location.href = '/user/getuser/'+userId
-}
-
 
 $(document).on("click", ".edit", function(){
 		$("#edituserid").val(($(this).parents("tr").find("td:nth-child(1)").text()))
