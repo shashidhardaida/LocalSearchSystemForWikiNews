@@ -11,5 +11,6 @@ urlpatterns = [
     path('item/del/<int:itemId>',views.DelItem),
     path('searchresult/', include('haystack.urls')),
     path('userhome/', views.UserHome),
+    path('edititem', views.EditItem),
 
 ]

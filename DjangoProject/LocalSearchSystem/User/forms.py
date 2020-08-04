@@ -1,11 +1,6 @@
-from django.contrib.auth import authenticate
-from django.contrib.auth.password_validation import validate_password
-from django.core import exceptions
-from django.core.validators import validate_email
 from django.forms import ModelForm
 from django import  forms
 from .models import  WikiNewsUser
-from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 
 class NewUserForm(forms.Form):
@@ -24,11 +19,9 @@ class NewUserForm(forms.Form):
         print(user)
         if len(user) > 0:
             self._errors['username'] = self.error_class(['This User name is already taken'])
-        elif password:
-            if len(password) < 8:
+        elif password and len(password) < 8:
                 self._errors['password'] = self.error_class(['Password should contain atleast 8 characters'])
-        elif password and password2:
-            if password != password2:
+        elif password and password2 and password != password2:
                 self._errors['password2'] = self.error_class(['Password and Confirm Password do not match'])
         else:
             return self.cleaned_data

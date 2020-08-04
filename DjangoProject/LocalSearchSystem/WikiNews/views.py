@@ -10,6 +10,7 @@ from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
 from scrapy.utils.log import configure_logging
 from .models import WikiNewsItem
+from .forms import  EditItemForm
 
 # Create your views here.
 
@@ -162,4 +163,14 @@ def UserHome(request):
 
 
 
+def EditItem(request):
+    if request.method=='POST':
+        try:
+            itemId = request.POST['edititemId']
+            item = WikiNewsItem.objects.get(id=itemId)
+            item.title = request.POST['edititemtitle']
+            item.save()
+        except:
+            return HttpResponseRedirect('/wikinews/item-management/')
+    return HttpResponseRedirect('/wikinews/item-management/')
 

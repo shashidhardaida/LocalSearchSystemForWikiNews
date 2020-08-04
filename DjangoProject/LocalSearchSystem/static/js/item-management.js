@@ -21,3 +21,9 @@ function itemDetail(itemId){
 
     location.href = '/wikinews/itemdetails/'+ itemId;
 }
+
+$(document).on("click", ".edit", function(){
+		$("#edititemId").val(($(this).parents("tr").find("td:nth-child(1)").text()))
+		$("#edititemtitle").val(($(this).parents("tr").find("td:nth-child(2)").text()))
+
+ });
