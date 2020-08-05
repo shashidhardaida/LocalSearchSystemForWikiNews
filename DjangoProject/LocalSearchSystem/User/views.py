@@ -9,7 +9,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.core.paginator import  Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 
 
-
+# View function for Login operation
 def LoginView(request):
     if request.method=='POST':
         userdetails = UserLoginForm(request.POST)
@@ -32,12 +32,13 @@ def LoginView(request):
         return render(request, 'index.html', {'form': form})
 
 
+# View function for User List page
 def UserManagementView(request):
     userList = WikiNewsUser.objects.all()
     return render(request, 'user-management.html', {'data': userList})
 
 
-
+# View function for New User form
 def NewUserView(request):
     if request.method == 'POST':
         newuserdetails = NewUserForm(request.POST)
@@ -56,18 +57,22 @@ def NewUserView(request):
         return render(request, 'newuser.html', {'form': form})
 
 
+# View function for Logout operation
 def LogoutView(request):
     del request.session['username']
     return HttpResponseRedirect('/user/login')
 
 
 
+# View function for Delete User operation
 def DelUser(request,userId):
     user=WikiNewsUser.objects.get(id=userId)
     user.delete()
     return  HttpResponseRedirect('/user/usermanagement')
 
 
+
+# View function for Edit User operation
 def EditUser(request):
     form = EditUserForm(request.POST)
     if request.method=='POST':

@@ -17,6 +17,8 @@ from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
 from scrapy.utils.log import configure_logging
 
+
+# Varialble Decleration
 result = []
 all_urls = []
 Paragraph_Data = []
@@ -24,6 +26,7 @@ continents = []
 continents_urls = []
 
 
+# Spyder class that scraps the wikinews website
 class Wikipedia(scrapy.Spider):
     name = "Wikipedia"
     start_urls = [
@@ -38,6 +41,7 @@ class Wikipedia(scrapy.Spider):
         return continents
 
 
+
 class Wikinews(scrapy.Spider):
     name = "Wikinews"
 
@@ -47,6 +51,7 @@ class Wikinews(scrapy.Spider):
             link = sel.xpath('a/@href').extract()
             result.append((title[0], link[0]))
         return result
+
 
 class Wikinews_items(scrapy.Spider):
     name = "Wikinews_items"
@@ -92,6 +97,7 @@ configure_logging()
 runner = CrawlerRunner()
 
 
+# Crawl function that executes spyders in order
 @defer.inlineCallbacks
 def crawl():
     yield runner.crawl(Wikipedia)

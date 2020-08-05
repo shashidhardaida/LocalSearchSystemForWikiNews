@@ -21,6 +21,7 @@ continents = []
 continents_urls = []
 
 
+# Spyder classes
 class Wikipedia(scrapy.Spider):
     name = "Wikipedia"
     # start_urls = [
@@ -92,6 +93,7 @@ configure_logging()
 runner = CrawlerRunner()
 
 
+# Crawl function that runs all the above sypders in order
 @defer.inlineCallbacks
 def crawl(url):
     yield runner.crawl(Wikipedia,start_urls=[url])
@@ -108,6 +110,7 @@ def crawl(url):
     reactor.stop()
 
 
+# View function that performs scrapping task once scrap buuton is clicked from UI
 def ScrapWikiNews(request):
     if request.method == 'POST':
         url = request.POST.get('urlinput')
@@ -130,16 +133,18 @@ def ScrapWikiNews(request):
     return  render(request,'web-scrapping.html')
 
 
-
+# View function for Item List page
 def ItemManagementView(request):
     itemList = WikiNewsItem.objects.all()
     return render(request, 'item-management.html', {'itemList': itemList})
 
 
+# View function for Web Scrapping page
 def WebScrappingView(request):
     return render(request, 'web-scrapping.html')
 
 
+# View function for Item Details page
 def ItemDetailView(request, itemId):
     items = WikiNewsItem.objects.filter(id=itemId)
     paragraphs =[]
@@ -151,6 +156,7 @@ def ItemDetailView(request, itemId):
     return render(request, 'details.html', {'items':items,'paragraphs':paragraphs})
 
 
+# View function for Delete Item operation
 def DelItem(request,itemId):
     print(itemId)
     item=WikiNewsItem.objects.get(id=itemId)
@@ -158,11 +164,13 @@ def DelItem(request,itemId):
     return HttpResponseRedirect('/wikinews/item-management/')
 
 
+# Wikinews Search Home page view
 def UserHome(request):
     return render(request, 'userhome.html')
 
 
 
+# View function Edit Items opeartion
 def EditItem(request):
     if request.method=='POST':
         try:
